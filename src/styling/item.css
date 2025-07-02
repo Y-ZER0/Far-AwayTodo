@@ -1,0 +1,113 @@
+.item {
+  padding: 15px 35px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+  border-color: #d1d5db;
+}
+
+.item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.item input[type="checkbox"]:hover {
+  border-color: #6366f1;
+}
+
+.item input[type="checkbox"]:checked {
+  background-color: #6366f1;
+  border-color: #6366f1;
+}
+
+.item input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.item-quantity {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.item-name {
+  flex: 1;
+  color: #1f2937;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.item input[type="checkbox"]:checked ~ .item-name {
+  text-decoration: line-through;
+  color: #9ca3af;
+  opacity: 0.7;
+}
+
+.item-delete button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.item-delete button:hover {
+  background: #fecaca;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.item-delete button:active {
+  transform: scale(0.95);
+}
+
+.item:has(input[type="checkbox"]:checked) {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  opacity: 0.8;
+}
+
+.item:has(input[type="checkbox"]:checked) .item-quantity {
+  background: #e5e7eb;
+  color: #6b7280;
+}

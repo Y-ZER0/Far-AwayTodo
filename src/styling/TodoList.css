@@ -1,0 +1,34 @@
+.todo-list {
+  width: 100%;
+  height: 70vh;
+  background-color: #f8f9fa;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: min-content;
+  padding: 20px;
+  position: relative;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.clear-list {
+  position: absolute;
+  bottom: 20px;
+  right: 45%;
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+.clear-list:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}

@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
+import FooterStats from "./components/footerStats";
+import { useState } from "react";
 
 function App() {
+  // global state for items
+  const [items, setItems] = useState([]);
+  const [checkedItems, setCheckedItems] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Form setItems={setItems} />
+      <TodoList
+        items={items}
+        setItems={setItems}
+        setCheckedItems={setCheckedItems}
+      />
+      <FooterStats items={items} checkedItems={checkedItems} />
     </div>
   );
 }
