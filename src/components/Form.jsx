@@ -8,16 +8,11 @@ function Form({ setItems }) {
     label: (i + 1).toString(),
   }));
 
-  // selected option == quantity
   const [selectedOption, setSelectedOption] = useState(null);
   const [itemName, setItemName] = useState("");
 
-  const handleChange = (option) => {
-    setSelectedOption(option);
-  };
-
-  const handleAddItem = () => {
-    // Check if both fields are filled
+  const handleAddItem = (e) => {
+    e.preventDefault();
     if (!itemName.trim() || !selectedOption) {
       alert("Please fill in both item name and quantity!");
       return;
@@ -26,28 +21,27 @@ function Form({ setItems }) {
     setItems((prevItems) => [
       ...prevItems,
       {
-        id: prevItems.length + 1, // Keep your original ID logic
+        id: prevItems.length + 1,
         name: itemName.trim(),
-        quantity: selectedOption.value, // Extract the value from the option object
+        quantity: selectedOption.value,
       },
     ]);
 
-    // Clear form after adding item
     setItemName("");
     setSelectedOption(null);
   };
 
   return (
-    <div className="form">
+    <form className="form" onSubmit={handleAddItem}>
       <div>What do you need for your 😄 trip?</div>
 
       <div className="dropdown-list">
         <Select
-          options={options} // expects array of { value, label }
-          value={selectedOption} // must match an option object or be null
-          onChange={handleChange}
+          options={options}
+          value={selectedOption}
+          onChange={setSelectedOption}
           isClearable
-          placeholder="Choose a number…"
+          placeholder="Quantity"
         />
       </div>
 
@@ -55,17 +49,15 @@ function Form({ setItems }) {
         <input
           type="text"
           placeholder="Item name"
-          onChange={(e) => setItemName(e.target.value)}
           value={itemName}
+          onChange={(e) => setItemName(e.target.value)}
         />
       </div>
 
       <div className="add-item">
-        <button type="submit" onClick={handleAddItem}>
-          Add
-        </button>
+        <button type="submit">Add</button>
       </div>
-    </div>
+    </form>
   );
 }
 

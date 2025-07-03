@@ -18,7 +18,8 @@ function Item({ name, quantity, setCheckedItems, setItem, id }) {
 
   const handleDelete = () => {
     setItem((prevItems) => prevItems.filter((item) => item.id !== id));
-    setCheckedItems((prevCheckedItems) => prevCheckedItems - 1);
+
+    if (isChecked) setCheckedItems((prevCheckedItems) => prevCheckedItems - 1);
   };
 
   return (
