@@ -7,10 +7,11 @@ function FooterStats({ items, checkedItems }) {
         <>
           You have {items.length} items in your list, and you already packed{" "}
           {checkedItems} / {items.length} (
-          {((checkedItems / items.length) * 100).toFixed(2)}%)
+          {((checkedItems / items.length) * 100).toFixed(2)}%){" "}
+          {checkedItems === items.length ? "you got everything!" : ""}
         </>
       ) : (
-        <>Your list is empty.</>
+        <>Start adding some items to your packing list.</>
       )}
     </footer>
   );

@@ -11,7 +11,7 @@ function Form({ setItems }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [itemName, setItemName] = useState("");
 
-  const handleAddItem = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!itemName.trim() || !selectedOption) {
       alert("Please fill in both item name and quantity!");
@@ -32,7 +32,7 @@ function Form({ setItems }) {
   };
 
   return (
-    <form className="form" onSubmit={handleAddItem}>
+    <form className="form" onSubmit={handleSubmit}>
       <div>What do you need for your 😄 trip?</div>
 
       <div className="dropdown-list">

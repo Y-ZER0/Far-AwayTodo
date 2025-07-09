@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   // global state for items
+  // lifting state up to the closest common parent component (shared state between sibling components)
   const [items, setItems] = useState([]);
   const [checkedItems, setCheckedItems] = useState(0);
 
